@@ -1,4 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddCors((corsOption)=> corsOption.AddDefaultPolicy(
+    (policyBuilder)=> policyBuilder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()
+));
 
 // Add services to the container.
 
@@ -17,7 +20,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 
-
+app.UseCors();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");

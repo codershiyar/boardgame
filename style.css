@@ -49,15 +49,20 @@ body{
   background-size: 50px !important;
 }
 .Speler1{
-  background: #5b5b5b url("public/jacket.png");
+  background: #5b5b5b url("public/superhero.png");
 }
 
 .Speler2{
-  background: rgb(240 240 240) url("public/hat.png");
+  background: rgb(240 240 240) url("public/superhero2.png");
 }
 .ToegestaanVelden1{
   background-color:#36b964;
 }
+.ToegestaanVelden2{
+  background-color:#ffa7a7;
+}
+
+
 .NietJeBuurt{
   background: #ff6b6b;
     width: 100%;

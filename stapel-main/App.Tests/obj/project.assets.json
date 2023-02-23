@@ -6034,11 +6034,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\school\\OpdrachtenS3\\stapel\\App.Tests\\App.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App.Tests\\App.Tests.csproj",
       "projectName": "App.Tests",
-      "projectPath": "D:\\school\\OpdrachtenS3\\stapel\\App.Tests\\App.Tests.csproj",
+      "projectPath": "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App.Tests\\App.Tests.csproj",
       "packagesPath": "C:\\Users\\codershiyar\\.nuget\\packages\\",
-      "outputPath": "D:\\school\\OpdrachtenS3\\stapel\\App.Tests\\obj\\",
+      "outputPath": "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\codershiyar\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6053,8 +6053,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\school\\OpdrachtenS3\\stapel\\App\\App.csproj": {
-              "projectPath": "D:\\school\\OpdrachtenS3\\stapel\\App\\App.csproj"
+            "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App\\App.csproj": {
+              "projectPath": "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App\\App.csproj"
             }
           }
         }

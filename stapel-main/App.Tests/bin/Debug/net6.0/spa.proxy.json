@@ -2,7 +2,7 @@
 "SpaProxyServer": {
 "ServerUrl": "https://localhost:44462",
 "LaunchCommand": "npm start",
-"WorkingDirectory": "D:\\school\\OpdrachtenS3\\stapel\\App\\ClientApp\\",
+"WorkingDirectory": "C:\\Users\\codershiyar\\Downloads\\bordgame\\stapel-main\\App\\ClientApp\\",
 "MaxTimeoutInSeconds": "120"
 }
 }
