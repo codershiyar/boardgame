@@ -9,7 +9,6 @@ let Interval;
 let StandSpeler1=4;
 let StandSpeler2=4;
 
-
 function VeldenDeselecteren(ClassNaam){
     const AllToegestaanVelden = document.querySelectorAll('.'+ClassNaam);
     AllToegestaanVelden.forEach((element) => {
@@ -18,7 +17,6 @@ function VeldenDeselecteren(ClassNaam){
 }
 
 function KlikOpEigenVak(CoordinateX,CoordinateY,Id){
-    
     VeldenDeselecteren("ToegestaanVelden1")
     VeldenDeselecteren("ToegestaanVelden2")
     localStorage.setItem("CoordinateX",CoordinateX)
@@ -41,7 +39,6 @@ function KlikOpEigenVak(CoordinateX,CoordinateY,Id){
 
 function KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id){
     let Beurt = Number(document.getElementById("Beurt").innerText);
-    console.log("2 Gaat naar " + Id)
     let ToegestaanVelden = document.querySelectorAll(".ToegestaanVelden1, .ToegestaanVelden2");
     if(ToegestaanVelden.length>0){
      let KanBewegen = false;
@@ -57,12 +54,12 @@ function KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id){
                     VeldMap[localStorage.getItem("CoordinateY")][localStorage.getItem("CoordinateX")] = 0;
                 }
                 BesmettenVijand(NieuweId)
+                VeldAanMaken(VeldMap)
                 Beurt = Beurt===2?1:2;
                 document.getElementById("Beurt").innerText =Beurt;
-                if(Beurt==2){ setTimeout(() => { StartTegenSpeler2()}, 300); }
+                if(Beurt==2){ setTimeout(() => { StartTegenSpeler2()}, 200); }
             }
         } catch (error) {
-            // Beurt = Beurt===2?1:2;
             try {
                 document.getElementById("Beurt").innerText =Beurt;
             } catch (error) { 
@@ -72,22 +69,33 @@ function KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id){
         }   
        }
        if(!KanBewegen){
-            VeldenDeselecteren("ToegestaanVelden1"); VeldenDeselecteren("ToegestaanVelden2")
+            VeldenDeselecteren("ToegestaanVelden1"); 
+            VeldenDeselecteren("ToegestaanVelden2")
        }
     } 
 }
 
 function BesmettenVijand(Id){
     let Beurt = Number(document.getElementById("Beurt").innerText);
-    let ToegestaanStappen1 = [Id-1,Id+10,Id+1,Id-10, Id-9,Id-11, Id+9,Id+11]        
-    for (let index = 0; index < ToegestaanStappen1.length; index++) {
+    let ToegestaanStappen1 = [Id-1,Id+10,Id+1,Id-10, Id-9,Id-11, Id+9,Id+11 ]
+    for (let index = 0; index < ToegestaanStappen1.length; ++index) {
+        //if id < 10 || id > grootte * 11 continue
+        if(ToegestaanStappen1[index]<10 || ToegestaanStappen1[index] > VeldGrootte * 11) continue;
+        try {
             var digits = ToegestaanStappen1[index].toString().split('').map(Number);
             let Tegenstanderd = Beurt==2?1:2;
+            if(digits[1] > Number(VeldGrootte.innerText )){
+                digits[1] = digits[1] - Number(VeldGrootte.innerText );
+                digits[0] +=1 
+            }
             if(Tegenstanderd==Number(VeldMap[digits[0]-1][digits[1]])){
                 VeldMap[digits[0]-1][digits[1]] = Beurt;
             }
+        } catch (error) {
+            console.log(error);
+            console.log(ToegestaanStappen1[index]);
+         }    
     }
-    VeldAanMaken(VeldMap)
 }
 
 function HandelVeldklik(GeselecteerdVakIsVan, CoordinateX,CoordinateY,Id){
@@ -102,7 +110,6 @@ function HandelVeldklik(GeselecteerdVakIsVan, CoordinateX,CoordinateY,Id){
         KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id); 
     }
 }
-
 
 function StartTegenSpeler2(){
     let VeldenVanSpeler2 = document.getElementsByClassName("Speler2"); 
@@ -123,6 +130,7 @@ function StartTegenSpeler2(){
     }
     KlikOpDeBestVeldVanSpeler2(MogelijkeBesmettingenPerElement)
 }
+
 
 function KlikOpDeBestVeldVanSpeler2(MogelijkeBesmettingenPerElement){
 let Gevonden = false;
@@ -159,8 +167,8 @@ function CheckBestVakVoorAanval(){
          BeginAiAanval(MogelijkeBesmettingenPerVak)
 }
 
-function BeginAiAanval(MogelijkeBesmettingenPerVak){
 
+function BeginAiAanval(MogelijkeBesmettingenPerVak){
         let MaxMogelijkeBesmettingen = Math.max(...MogelijkeBesmettingenPerVak.map(o => o[1]))
         let Gevonden = false;
         if(MaxMogelijkeBesmettingen ==0 && MogelijkeBesmettingenPerVak.length>0){
@@ -169,7 +177,7 @@ function BeginAiAanval(MogelijkeBesmettingenPerVak){
             MogelijkeBesmettingenPerVak.forEach(Element=>{
                 if (Element[1] ===  MaxMogelijkeBesmettingen) {
                     if (!Gevonden) {
-                        console.log("Gaat naar " + Element[0])
+                        // console.log("Gaat naar " + Element[0])
                         document.getElementById(Number(Element[0])).click();
                         Gevonden =true;
                     }
@@ -177,6 +185,7 @@ function BeginAiAanval(MogelijkeBesmettingenPerVak){
             })
         }
 }
+
 let SpeelBegonnenKnop = document.getElementById("SpeelBegonnenKnop");
 SpeelBegonnenKnop.onclick = () =>{
     SpeelIsBegonnen=!SpeelIsBegonnen;
@@ -253,6 +262,7 @@ function OpslaanVeldInStapel(Waarde){
 }
 
 function VeldAanMaken(Veld){
+
     if(StandSpeler1==0 || StandSpeler2==0){
        SpeelAfgelopen()
     }
