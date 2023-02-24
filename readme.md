@@ -1,4 +1,4 @@
-[Coder Shiyar](https://codershiyar.com)
+
 
 <div align="center">
   <a href="https://www.youtube.com/codershiyar">
@@ -35,5 +35,7 @@ To start game and play, <b>just open html file in browser.</b>
 To make go back 1 step working, go to <b>stapel-main/App</b>
 <br>
 and run this command after installing dotnet on your pc : <b> [dotnet run] </b>
+<br>
+[https://codershiyar.github.io/bordgame]
 
 <div>  
