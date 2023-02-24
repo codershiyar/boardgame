@@ -1,38 +1,39 @@
 [Coder Shiyar](https://codershiyar.com)
-[![Stargazers][stars-shield]][https://www.youtube.com/codershiyar]
 
-</p>
 <div align="center">
-  <a href="./game-img.PNG">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://www.youtube.com/codershiyar">
+    <img src="./game-img.PNG" alt="Logo">
   </a>
-  <h3 align="center">ToGo Game</h3>
+  <h3 align="center">Bord Game</h3>
 
-  <p><
-  Deze game is als een uitdaging van The Hague University om als student binnen 12 uur een krachtig spel te creëren met hun strenge regels + en het gebruik van kunstmatige intelligentie . Zonder gebruik van YouTube of andere bronnen zoals ChatGPT of Google. 
+  <p>
+  <b>
+  Dit speelt is als een uitdaging van The Hague University geweest om als student binnen 12 uur een krachtig spel te creëren met hun strenge regels + en zelf gemaakte algoritme om een computer speler toe te voegen die niet makkelijk te verslaan door het gebruik van kunstmatige intelligentie . 
+  Ik heb tijdens het maken van deze speel geen gebruik gemaakt van YouTube of andere bronnen zoals ChatGPT of Google. 
+    </b>
   <br>
-
    Menselijke intelligentie vs kunstmatige intelligentie. 
    <br>
-   Het is in Nederlandse.  Het zou gemakkelijker en nog beter geweest als we zonderstrenge regels van universiteit aan de slag ging. 
+   Het is in Nederlandse.  Het zou gemakkelijker en nog beter geweest als we zonder strenge regels van universiteit aan de slag ging. 
    <br>
    <p> 
-   This game is a challenge from The Hague University to create a powerful game within 12 hours with their strict rules + and the use of artificial intelligence. Without the use of YouTube or other sources such as Chatgpt or Google.
+ This game has been as a challenge from The Hague University to create a powerful game within 12 hours with their strict rules + and self -made algorithm to add a computer player that is not easy to beat through the use of artificial intelligence.
+   While making this play, I did not use YouTube or other sources such as Chatgpt or Google.
    <br>
-
     Human intelligence vs artificial intelligence.
-    <br>
-    It is in Dutch. It would be easier and even better if we started university of university.
+   
+  <p> It is in Dutch. It would be easier and even better if we started working without strict rules from University. </p>
     <br>
   </p>
   <h2 align="center"> Getting Started</h2>
 
 <br>
-To start game and play, just open html file in browser.
+To start game and play, <b>just open html file in browser.</b>
+<br>
 -------------------------------------------------------
 <p>
-To make go back 1 step working, go to stapel-main/App
+To make go back 1 step working, go to <b>stapel-main/App</b>
 <br>
-and run this command after installing dotnet on your pc : [dotnet run]
+and run this command after installing dotnet on your pc : <b> [dotnet run] </b>
 
 <div>  
