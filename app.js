@@ -17,8 +17,7 @@ function VeldenDeselecteren(ClassNaam){
 }
 
 function KlikOpEigenVak(CoordinateX,CoordinateY,Id){
-    VeldenDeselecteren("ToegestaanVelden1")
-    VeldenDeselecteren("ToegestaanVelden2")
+    VeldenDeselecteren("ToegestaanVelden1"); VeldenDeselecteren("ToegestaanVelden2");
     localStorage.setItem("CoordinateX",CoordinateX)
     localStorage.setItem("CoordinateY",CoordinateY-1 )
 
@@ -53,25 +52,17 @@ function KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id){
                 if(ToegestaanVelden[i].classList.contains("ToegestaanVelden2")){
                     VeldMap[localStorage.getItem("CoordinateY")][localStorage.getItem("CoordinateX")] = 0;
                 }
-                BesmettenVijand(NieuweId)
-                VeldAanMaken(VeldMap)
-                Beurt = Beurt===2?1:2;
-                document.getElementById("Beurt").innerText =Beurt;
-                if(Beurt==2){ setTimeout(() => { StartTegenSpeler2()}, 200); }
+                BesmettenVijand(NieuweId); VeldAanMaken(VeldMap)
+                Beurt = Beurt===2?1:2; document.getElementById("Beurt").innerText =Beurt;
+                if(Beurt==2){ setTimeout(() => { StartTegenSpeler1()}, 200); }
             }
         } catch (error) {
-            try {
-                document.getElementById("Beurt").innerText =Beurt;
-            } catch (error) { 
-                console.log("Speel is beindiged")
-            }
-            if(Beurt==2){ setTimeout(() => { StartTegenSpeler2()}, 300); }
+            try { document.getElementById("Beurt").innerText =Beurt;  } 
+            catch (error) { console.log("Speel is beindiged") }
+            if(Beurt==2){ setTimeout(() => { StartTegenSpeler1()}, 300); }
         }   
        }
-       if(!KanBewegen){
-            VeldenDeselecteren("ToegestaanVelden1"); 
-            VeldenDeselecteren("ToegestaanVelden2")
-       }
+       if(!KanBewegen){ VeldenDeselecteren("ToegestaanVelden1"); VeldenDeselecteren("ToegestaanVelden2") }
     } 
 }
 
@@ -79,39 +70,33 @@ function BesmettenVijand(Id){
     let Beurt = Number(document.getElementById("Beurt").innerText);
     let ToegestaanStappen1 = [Id-1,Id+10,Id+1,Id-10, Id-9,Id-11, Id+9,Id+11 ]
     for (let index = 0; index < ToegestaanStappen1.length; ++index) {
-        //if id < 10 || id > grootte * 11 continue
         if(ToegestaanStappen1[index]<10 || ToegestaanStappen1[index] > VeldGrootte * 11) continue;
         try {
             var digits = ToegestaanStappen1[index].toString().split('').map(Number);
             let Tegenstanderd = Beurt==2?1:2;
-            if(digits[1] > Number(VeldGrootte.innerText )){
-                digits[1] = digits[1] - Number(VeldGrootte.innerText );
-                digits[0] +=1 
-            }
+            // Aanzetten aanval achter line
+            // if(digits[1] > Number(VeldGrootte.innerText )){
+            //     digits[1] = digits[1] - Number(VeldGrootte.innerText ); digits[0] +=1 
+            // }
             if(Tegenstanderd==Number(VeldMap[digits[0]-1][digits[1]])){
                 VeldMap[digits[0]-1][digits[1]] = Beurt;
             }
-        } catch (error) {
-            console.log(error);
-            console.log(ToegestaanStappen1[index]);
-         }    
+        } catch (error) { console.log(error);  }    
     }
 }
 
 function HandelVeldklik(GeselecteerdVakIsVan, CoordinateX,CoordinateY,Id){
     let Beurt = Number(document.getElementById("Beurt").innerText);
     if (GeselecteerdVakIsVan>0){
-        if (GeselecteerdVakIsVan === Beurt){
+        if (GeselecteerdVakIsVan === Beurt)
             KlikOpEigenVak(CoordinateX,CoordinateY,Id);
-        }else{
+        else
             document.getElementById("Alert").innerHTML = "<span class='NietJeBeurt'> Het is niet je Beurt </span> <br> Het is Beurt speler <span id='Beurt'>" +Beurt + "</span>"
-        }
-    }else{
+    }else
         KlikOpVeldenNietVanSpelers (CoordinateX,CoordinateY,Id); 
-    }
 }
 
-function StartTegenSpeler2(){
+function StartTegenSpeler1(){
     let VeldenVanSpeler2 = document.getElementsByClassName("Speler2"); 
     var MogelijkeBesmettingenPerElement = []  
     for (let index = 0; index < VeldenVanSpeler2.length; index++) {
@@ -121,14 +106,12 @@ function StartTegenSpeler2(){
         let MogelijkeBesmettingen = 0;
         ToegestaanStappen.forEach(VeldId => {
             if(VeldIdes.includes(VeldId)){
-                if(document.getElementById(VeldId).classList.contains("Speler1")){
+                if(document.getElementById(VeldId).classList.contains("Speler1"))
                    ++MogelijkeBesmettingen;
-                }
             }
         });
         MogelijkeBesmettingenPerElement.push([Id,MogelijkeBesmettingen])
-    }
-    KlikOpDeBestVeldVanSpeler2(MogelijkeBesmettingenPerElement)
+    } KlikOpDeBestVeldVanSpeler2(MogelijkeBesmettingenPerElement)
 }
 
 
@@ -146,11 +129,9 @@ let Gevonden = false;
 
 function CheckBestVakVoorAanval(){
     let ToegestaanVelden = document.querySelectorAll('.ToegestaanVelden1,.ToegestaanVelden2');
-   
     let MogelijkeBesmettingenPerVak = []  
     for (let index = 0; index < ToegestaanVelden.length; index++) {
         let Id = ToegestaanVelden[index].id;
-    
         if(!ToegestaanVelden[index].classList[0].includes("Speler")){
             let ToegestaanStappen = [Id-1,Id+10,Id+1,Id-10, Id-9,Id-11, Id+9,Id+11]
             let MogelijkeBesmettingen = 0;
@@ -162,9 +143,7 @@ function CheckBestVakVoorAanval(){
                 }
             });
             MogelijkeBesmettingenPerVak.push([Id,MogelijkeBesmettingen])
-        }
-         }
-         BeginAiAanval(MogelijkeBesmettingenPerVak)
+        } } BeginAiAanval(MogelijkeBesmettingenPerVak)
 }
 
 
@@ -177,7 +156,6 @@ function BeginAiAanval(MogelijkeBesmettingenPerVak){
             MogelijkeBesmettingenPerVak.forEach(Element=>{
                 if (Element[1] ===  MaxMogelijkeBesmettingen) {
                     if (!Gevonden) {
-                        // console.log("Gaat naar " + Element[0])
                         document.getElementById(Number(Element[0])).click();
                         Gevonden =true;
                     }
@@ -193,16 +171,13 @@ SpeelBegonnenKnop.onclick = () =>{
     if(SpeelBegonnenKnop.innerText.includes("Eind speel"))
         SpeelAfgelopen()
     else{
-        TellerTijd.innerText = 100;
+        TellerTijd.innerText = 60;
     Interval = setInterval(() => {
         Number(TellerTijd.innerText)> 0 ? TellerTijd.innerText = Number(TellerTijd.innerText)-1: SpeelAfgelopen();
     }, 1000);
     Startopstelling();
 }
-  
 }
-
-
 
 function Startopstelling() {
     SpeelBegonnenKnop.innerText = "Eind speel"
@@ -262,49 +237,46 @@ function OpslaanVeldInStapel(Waarde){
 }
 
 function VeldAanMaken(Veld){
-
+   
     if(StandSpeler1==0 || StandSpeler2==0){
        SpeelAfgelopen()
-    }
-    VeldMap =Veld 
-    VeldIdes = []
-    let VeldInhoud =   ` 
-    <div class="alert alert-warning p-2" >
-                        <span id="Alert">Het is Beurt van Speler <span id="Beurt">1</span></span> 
-                        <div style=" text-align: right;">  <img id="Terug" title="terug" src="public/left-arrow.png" width="40"/></div>
-    </div>`
-   
-   Object.keys(Veld).map((Rij) => {
-    VeldInhoud+= `<div>
-            ${
-                Veld[Rij].map((Item,Index) => {
-                    let Vak =  Item >0 ? "Speler" : "LeegVeld";
-                    Vak = Vak.includes("Speler")? Vak+Item: Vak;
-                    let Coordinate = {X: Index, Y:Number(Rij)+1}
-                    let Id = Coordinate.Y+ "" + Coordinate.X;
-                    VeldIdes.push(Number(Id))
-                   return  `
-                   <button onclick="HandelVeldklik(${Item} , ${Coordinate.X} , ${Coordinate.Y} , ${Id})" 
-                   id="${Id}" class="${Vak}"></button>`
-                })
-            }
-        </div>` }
-    )
-    VeldInhoud+= `</section>`
-       document.getElementById("Bord").innerHTML = VeldInhoud;
+    }   VeldMap =Veld;
+        VeldTemplate(Veld)
        UpdateStand()
-
        document.getElementById("Terug").onclick = ()=>{
         fetch("https://localhost:7102/stapel").then(Request=> Request.text()).then(Antwoord=>{
             Antwoord = JSON.parse(Antwoord);
             VeldAanMaken(JSON.parse(Antwoord.Waarde))
-            console.log("Terug:" + JSON.parse(Antwoord.Waarde))
+            // console.log("Terug:" + JSON.parse(Antwoord.Waarde))
         }).catch(error=>{
            NieuweMapAanmaken()
         })
-
     }   
     UpdateStand()
+}
+
+function VeldTemplate(Veld){
+     VeldIdes = []
+    let VeldInhoud =   ` 
+    <div class="alert alert-warning p-2" >
+        <span id="Alert">Het is Beurt van Speler <span id="Beurt">1</span></span> 
+         <div style=" text-align: right;">  <img id="Terug" title="terug" src="public/left-arrow.png" width="40"/></div>
+    </div>`
+   Object.keys(Veld).map((Rij) => {
+    VeldInhoud+= `<div>
+     ${
+         Veld[Rij].map((Item,Index) => {
+             let Vak =  Item >0 ? "Speler" : "LeegVeld";
+             Vak = Vak.includes("Speler")? Vak+Item: Vak;
+             let Coordinate = {X: Index, Y:Number(Rij)+1}
+             let Id = Coordinate.Y+ "" + Coordinate.X;
+             VeldIdes.push(Number(Id))
+            return ` <button onclick="HandelVeldklik(${Item} , ${Coordinate.X} , ${Coordinate.Y} , ${Id})"  id="${Id}" class="${Vak}"></button>`
+         })
+     }
+        </div>` }
+    )
+    VeldInhoud+= `</section>`; document.getElementById("Bord").innerHTML = VeldInhoud;
 }
 
 function VerhogenVeldGrootte(){
