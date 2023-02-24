@@ -285,7 +285,7 @@ function VerhogenVeldGrootte(){
    VeldAanMaken(NieuweMapAanmaken())
 }
 function VerlagenVeldGrootte(){
-    VeldGrootte.innerText>5?   VeldGrootte.innerText = Number(VeldGrootte.innerText) -1:""
+    VeldGrootte.innerText>4?   VeldGrootte.innerText = Number(VeldGrootte.innerText) -1:""
     UpdateLayout()
     VeldAanMaken(NieuweMapAanmaken())
 
