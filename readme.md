@@ -8,7 +8,7 @@
 
   <p>
   <b>
-  Dit speelt is als een uitdaging van The Hague University geweest om als student binnen 12 uur een krachtig spel te creëren met hun strenge regels + en zelf gemaakte algoritme om een computer speler toe te voegen die niet makkelijk te verslaan door het gebruik van kunstmatige intelligentie . 
+  Dit speel is als een uitdaging van The Hague University geweest om als student binnen 12 uur een krachtig spel te creëren met hun strenge regels + en zelf gemaakte algoritme om een computer speler toe te voegen die niet makkelijk te verslaan door het gebruik van kunstmatige intelligentie . 
   Ik heb tijdens het maken van deze speel geen gebruik gemaakt van YouTube of andere bronnen zoals ChatGPT of Google. 
     </b>
   <br>
