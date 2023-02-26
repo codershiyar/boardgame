@@ -14,7 +14,7 @@
   <br>
    Menselijke intelligentie vs kunstmatige intelligentie. 
    <br>
-   Het is in Nederlandse.  Het zou gemakkelijker en nog beter geweest als we zonder strenge regels van universiteit aan de slag ging. 
+   Het is in Nederlands.  Het zou gemakkelijker en nog beter geweest als we zonder strenge regels van universiteit aan de slag gingen. 
    <br>
    <p> 
  This game has been as a challenge from The Hague University to create a powerful game within 12 hours with their strict rules + and self -made algorithm to add a computer player that is not easy to beat through the use of artificial intelligence.
