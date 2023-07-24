@@ -4,10 +4,8 @@
   <a href="https://www.youtube.com/codershiyar">
     <img src="./game-img.PNG" alt="Logo">
   </a>
-  <h3 align="center">Bord Game</h3>
-
+  <h1 align="center">Play Now: Human Intelligence vs. AI Board Game</h1>
   <p>
-  <b>
   Dit speel is als een uitdaging van The Hague University geweest om als student binnen 12 uur een krachtig spel te creëren met hun strenge regels + en zelf gemaakte algoritme om een computer speler toe te voegen die niet makkelijk te verslaan door het gebruik van kunstmatige intelligentie . 
   Ik heb tijdens het maken van deze speel geen gebruik gemaakt van YouTube of andere bronnen zoals ChatGPT of Google. 
     </b>
@@ -36,6 +34,6 @@ To make go back 1 step working, go to <b>stapel-main/App</b>
 <br>
 and run this command after installing dotnet on your pc : <b> [dotnet run] </b>
 <br>
-[https://codershiyar.github.io/bordgame]
+[https://codershiyar.github.io/boardgame]
 
 <div>  
