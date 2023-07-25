@@ -34,6 +34,6 @@ To make go back 1 step working, go to <b>stapel-main/App</b>
 <br>
 and run this command after installing dotnet on your pc : <b> [dotnet run] </b>
 <br>
-[[https://codershiyar.github.io/boardgame/](https://codershiyar.github.io/boardgame/)]
+[https://codershiyar.github.io/boardgame/](https://codershiyar.github.io/boardgame/)]
 
 <div>  
